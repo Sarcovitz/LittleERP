@@ -1,0 +1,35 @@
+body{
+    margin: 0px;
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+#menu{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#menu a
+{
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 30px;
+    margin-inline: 25px;
+    color: white;
+    height: 30px;
+    width: 90px;
+    font-size: 20px;
+    padding: 8px 50px;
+    transition: color 0.5s;
+    transition: background 0.5s;
+}
+
+#menu a:hover {
+    color: black;
+    background: white;
+}

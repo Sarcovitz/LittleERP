@@ -1,0 +1,8 @@
+#menu a
+{
+    border-style: solid;
+    border-color: white;
+    border-radius: 50%;
+    margin-inline: 30px;
+    padding: 10px;
+}
