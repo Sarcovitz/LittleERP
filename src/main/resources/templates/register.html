@@ -2,25 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Online Marketplace</title>
+    <title>Little ERP - Register</title>
     <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="login.css">
     <script src="/javascript.js"></script>
 </head>
 <body>
 
 <div th:replace="fragments.html :: menu"></div>
 
-<div id="content">
-    <form method="post" id="register-form" onsubmit="return validateRegistration()">
-        <input type="text" placeholder="E-mail" th:field="*{user.email}" id="email">
+<div id="login-form-holder">
+    <form action="/register" method="post" class="form" onsubmit="return validateRegistration()">
+        <input type="text" placeholder="E-mail" th:field="*{user.email}" class="form-input" id="email">
         <br>
-        <input type="text" placeholder="Login" th:field="*{uesr.login}" id="login">
+        <input type="text" placeholder="Login" th:field="*{user.login}" class="form-input" id="login">
         <br>
-        <input type="password" placeholder="Password" th:field="*{user.password}" id="password">
+        <input type="password" placeholder="Password" th:field="*{user.password}" class="form-input" id="password">
         <br>
-        <input type="password" placeholder="Repeat password." id="password2">
+        <input type="password" placeholder="Repeat Password." class="form-input" id="password2">
         <br>
-        <input type="submit" value="register">
+        <div class="form-buttons">
+            <input type="submit" value="Register" class="form-button">
+        </div>
     </form>
 </div>
 </body>

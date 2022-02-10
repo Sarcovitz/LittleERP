@@ -1,0 +1,30 @@
+H1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    letter-spacing: 6px;
+    font-size: 50px;
+    font-family: "Segoe UI";
+}
+
+a{
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 30px;
+    margin-inline: 25px;
+    color: white;
+    height: 30px;
+    width: 90px;
+    font-size: 20px;
+    padding: 8px 50px;
+    transition: color 0.5s;
+    transition: background 0.5s;
+}
+
+a:hover{
+    color: black;
+    background: white;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Add customer.</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="customers.css">
+</head>
+<body>
+<div th:replace="fragments.html :: menu"></div>
+<H1 th:if="${add == true}">ADD CUSTOMER</H1>
+<H1 th:if="${add == false}">EDIT CUSTOMER</H1>
+
+<div th:if="${add==false}" id="customer-form-holder">
+    <form action="/customers/add" method="post" class="customer-form" onsubmit="return validateCustomer()">
+        <input type="text" placeholder="E-mail" th:field="*{user.email}" class="customer-form-input" id="email">
+        <br>
+        <input type="text" placeholder="Login" th:field="*{user.login}" class="customer-form-input" id="login">
+        <br>
+        <input type="password" placeholder="Password" th:field="*{user.password}" class="customer-form-input" id="password">
+        <br>
+        <input type="password" placeholder="Repeat Password." class="form-input" id="password2">
+        <br>
+        <div class="form-buttons">
+            <input type="submit" value="Register" class="form-button">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

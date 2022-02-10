@@ -26,10 +26,8 @@
 
         <property name="hbm2ddl.auto">update</property>
 
-<!--        <mapping class="pl.edu.wszib.marketplace.models.Offer"/>-->
-<!--        <mapping class="pl.edu.wszib.marketplace.models.Order"/>-->
-<!--        <mapping class="pl.edu.wszib.marketplace.models.User"/>-->
-<!--        <mapping class="pl.edu.wszib.marketplace.models.viewmodel.RegisterUser"/>-->
+        <mapping class="pl.edu.wszib.little.erp.models.User"/>
+        <mapping class="pl.edu.wszib.little.erp.models.Customer"/>
 
     </session-factory>
 </hibernate-configuration>

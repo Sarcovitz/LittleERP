@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Customers</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="customers.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: menu"></div>
+    <H1>CUSTOMERS</H1>
+
+    <a href="/customers/add">
+
+    <div th:each="customer : ${customers}">
+        <div th:text="'Code: '${customer.code}"></div>
+        <div th:text="'Name: '${customer.name}"></div>
+        <div th:text="'NIP Number: '${customer.nip}"></div>
+        <div th:text="'City: '${customer.city}"></div>
+        <div th:text="'Address: '${customer.address}"></div>
+        <div th:text="'Contact:: '${customer.mailOrPhone}"></div>
+    </div>
+
+</body>
+</html>

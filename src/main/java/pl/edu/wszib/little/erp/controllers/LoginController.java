@@ -55,6 +55,14 @@ public class LoginController
         return "redirect:/main";
     }
 
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(Model model)
+    {
+        model.addAttribute("logged", this.session.isLogged());
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute User user)
     {

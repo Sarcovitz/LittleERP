@@ -32,6 +32,11 @@ function validateRegistration()
     }
 }
 
+function validateCustomer()
+{
+
+}
+
 function validateNewOffer()
 {
     const title = document.getElementById("title").value;
