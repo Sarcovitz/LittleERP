@@ -5,6 +5,23 @@ body{
     background-size: auto;
 }
 
+H1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    letter-spacing: 6px;
+    font-size: 50px;
+    font-family: "Segoe UI";
+}
+
+#error
+{
+    display: flex;
+    text-align: center;
+    color: red;
+    font-size: 20px;
+}
+
 #menu{
     display: flex;
     justify-content: center;
@@ -32,4 +49,9 @@ body{
 #menu a:hover {
     color: black;
     background: white;
+}
+
+#centered-a{
+    margin: 0 auto;
+    width: 200px;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Add Customer</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../form.css">
+    <script src="../js.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: menu"></div>
+<H1 th:if="${add == true}">ADD CUSTOMER</H1>
+<H1 th:if="${add == false}">EDIT CUSTOMER</H1>
+
+<p id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+
+<div th:if="${add==true}" id="form-holder">
+    <form action="/customers/add" method="post" class="form" onsubmit="return validateCustomer()">
+        <input type="text" placeholder="Name" th:field="*{customer.name}" class="form-input" id="name">
+        <br>
+        <input type="text" placeholder="Code" th:field="*{customer.code}" class="form-input" id="code">
+        <br>
+        <input type="text" placeholder="NIP number" th:field="*{customer.nip}" class="form-input" id="nip">
+        <br>
+        <input type="text" placeholder="City" th:field="*{customer.city}" class="form-input" id="city">
+        <br>
+        <input type="text" placeholder="Address" th:field="*{customer.address}" class="form-input" id="address">
+        <br>
+        <input type="text" placeholder="Mail / Phone" th:field="*{customer.mailOrPhone}" class="form-input" id="mailOrPhone">
+        <br>
+        <div class="form-buttons">
+            <input type="submit" value="ADD" class="form-button">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

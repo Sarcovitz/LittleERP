@@ -20,7 +20,7 @@ a:hover{
     background: white;
 }
 
-#customers{
+#products{
     align-items: center;
     margin: 0 auto;
     padding-top: 20px;
@@ -29,7 +29,7 @@ a:hover{
     color: white;
 }
 
-.customer{
+.product{
     align-items: center;
     display: flex;
     width: 60%;
@@ -37,14 +37,14 @@ a:hover{
     border-radius: 10px;
 }
 
-.customer-col {
+.product-col {
     padding-left: 20px;
     margin: 0 auto;
     width: 30%;
     float: left;
 }
 
-.customer-elem{
+.product-elem{
     padding-top: 4px;
     padding-bottom: 4px;
 

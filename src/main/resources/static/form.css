@@ -1,10 +1,31 @@
-#login-form-holder{
+/*#login-form-holder{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    padding-top: 200px;*/
+/*}*/
+
+/*#login-form-holder .form{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    width: 50%;*/
+/*}*/
+
+/*#customer-form-holder{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    padding-top: 50px;*/
+/*}*/
+/*#customer-form-holder .form{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    width: 50%;*/
+/*}*/
+#form-holder{
     display: flex;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 50px;
 }
-
-#login-form-holder .form{
+#form-holder .form{
     display: flex;
     flex-direction: column;
     width: 50%;

@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Little ERP - Login</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../form.css">
 
 </head>
 <body>
 <div th:replace="fragments.html :: menu"></div>
 
-<div id="login-form-holder">
+<div id="form-holder">
     <form action="/login" method="post" class="form">
         <input type="text" placeholder="Login" name="login" class="form-input">
         <br>

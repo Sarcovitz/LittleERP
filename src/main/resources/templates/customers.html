@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="customers.css">
 </head>
 <body>
-    <div th:replace="fragments.html :: menu"></div>
-    <H1>CUSTOMERS</H1>
+    <div id="content">
+        <div th:replace="fragments.html :: menu"></div>
+        <H1>CUSTOMERS</H1>
+        <a id="centered-a" href="/customers/add">Add Customer</a>
 
-    <a href="/customers/add">
-
-    <div th:each="customer : ${customers}">
-        <div th:text="'Code: '${customer.code}"></div>
-        <div th:text="'Name: '${customer.name}"></div>
-        <div th:text="'NIP Number: '${customer.nip}"></div>
-        <div th:text="'City: '${customer.city}"></div>
-        <div th:text="'Address: '${customer.address}"></div>
-        <div th:text="'Contact:: '${customer.mailOrPhone}"></div>
+        <div id="customers">
+            <div th:each="customer : ${customers}" class ="customer">
+                <div class="customer-col">
+                    <div th:text="'Code: ' + ${customer.code}" class="customer-elem"></div>
+                    <div th:text="'Name: ' + ${customer.name}" class="customer-elem"></div>
+                    <div th:text="'NIP Number: ' + ${customer.nip}" class="customer-elem"></div>
+                </div>
+                <div class="customer-col">
+                    <div th:text="'City: ' + ${customer.city}" class="customer-elem"></div>
+                    <div th:text="'Address: ' + ${customer.address}" class="customer-elem"></div>
+                    <div th:text="'Contact: ' + ${customer.mailOrPhone}" class="customer-elem"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

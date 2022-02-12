@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Add Product</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../form.css">
+    <script src="../js.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: menu"></div>
+<H1 th:if="${add == true}">ADD PRODUCT</H1>
+<H1 th:if="${add == false}">EDIT PRODUCT</H1>
+
+<p id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+
+<div th:if="${add==true}" id="form-holder">
+    <form action="/products/add" method="post" class="form" onsubmit="return validateProduct()">
+        <input type="text" placeholder="Name" th:field="*{product.name}" class="form-input" id="name">
+        <br>
+        <input type="text" placeholder="Code" th:field="*{product.code}" class="form-input" id="code">
+        <br>
+        <input type="text" placeholder="EAN code" th:field="*{product.ean}" class="form-input" id="nip">
+        <br>
+        <input type="text" placeholder="Price ('.' dot for float value)" th:field="*{product.price}" name="Price" class="form-input" id="city">
+        <br>
+        <input type="text" placeholder="Quantity" th:field="*{product.quantity}" name="Quantity" class="form-input" id="address">
+        <br>
+        <input type="text" placeholder="Vat tax" th:field="*{product.vat}" name="Vat tax" class="form-input" id="mailOrPhone">
+        <br>
+        <div class="form-buttons">
+            <input type="submit" value="ADD" class="form-button">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

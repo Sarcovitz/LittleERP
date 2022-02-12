@@ -32,6 +32,100 @@ function validateRegistration()
     }
 }
 
+function validateCustomer()
+{
+    const name = document.getElementById("name").value;
+    const code = document.getElementById("code").value;
+    const nip = document.getElementById("nip").value;
+    const address = document.getElementById("address").value;
+    const mailOrPhone = document.getElementById("mailOrPhone").value;
+    const city = document.getElementById("city").value;
+
+    const nipRegex = /[0-9]{10}$/;
+
+    if(code === null || code.length < 3 || code.length > 10)
+    {
+        alert("Code must be between 3 and 10 characters long!");
+        return false;
+    }
+    else if(name === null || name.length < 3 || name.length > 50)
+    {
+        alert("Name must be between 3 and 50 characters long!");
+        return false;
+    }
+    else if(nip === null || nip.length !== 10)
+    {
+        alert("NIP Number must have 10 digits.");
+        return false;
+    }
+    else if(!nipRegex.test(nip))
+    {
+        alert("NIP Number can contain only digits 0-9!");
+        return false;
+    }
+    else if(address===null || address.length < 3 || address.length > 50)
+    {
+        alert("Name must be between 3 and 50 characters long!");
+        return false;
+    }
+    else if(mailOrPhone.length > 50)
+    {
+        alert("Contact field can have up to 50 characters.");
+        return false;
+    }
+    else if(city === null || city.length === 0)
+    {
+        alert("You need to define city!");
+        return false;
+    }
+    else return true;
+}
+
+function validateProduct()
+{
+    const name = document.getElementById("name").value;
+    const code = document.getElementById("code").value;
+    const ean = document.getElementById("ean").value;
+    const price = document.getElementById("price").value;
+    const quantity = document.getElementById("quantity").value;
+    const vat = document.getElementById("vat").value;
+
+    const eanRegex = /[0-9]{7,13}$/;
+
+    if(code === null || code.length < 3 || code.length > 10)
+    {
+        alert("Code must be between 3 and 10 characters long!");
+        return false;
+    }
+    else if(name === null || name.length < 3 || name.length > 50)
+    {
+        alert("Name must be between 3 and 50 characters long!");
+        return false;
+    }
+    else if(!eanRegex.test(ean))
+    {
+        alert("Name must be between 7 and 13 DIGITS long!");
+        return false;
+    }
+    else if(isNan(price))
+    {
+        alert("Price must be a number (float or integer)!");
+        return false;
+    }
+    else if(!Number.isInteger(quantity))
+    {
+        alert("Quantity must be an integer number");
+        return false;
+    }
+    else if(!Number.isInteger(vat))
+    {
+        alert("Vat Tax Rate must be an integer number");
+        return false;
+    }
+    else return true;
+
+}
+
 function validateNewOffer()
 {
     const title = document.getElementById("title").value;
@@ -39,29 +133,39 @@ function validateNewOffer()
     const quantity = document.getElementById("quantity").value;
     const description = document.getElementById("description").value;
 
+
     if(title.length < 3)
     {
-        alert(" Offer title is too short! ")
+        alert(" Offer title is too short! ");
+
         return false;
     }
 
     if(isNaN(price))
     {
-        alert("Price must be an floating point number!")
+        alert("Price must be an floating point number!");
         return false;
     }
 
     if(!Number.isInteger(Number.parseInt(quantity)))
     {
-        alert("Quantity must be an integer!")
+        alert("Quantity must be an integer!");
         return false;
     }
 
     if(description.length < 3)
     {
-        alert(" Offer description is too short! ")
+        alert(" Offer description is too short! ");
         return false;
     }
+
+    if(city.length === 0)
+    {
+        alert(" Offer description is too short! ");
+        return false;
+    }
+
+
 
     return true;
 }

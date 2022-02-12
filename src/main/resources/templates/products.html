@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Products</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../products.css">
+    <script src="../js.js"></script>
+</head>
+<body>
+<div id="content">
+    <div th:replace="fragments.html :: menu"></div>
+    <H1>PRODUCTS</H1>
+    <a id="centered-a" href="/products/add">Add Product</a>
+
+    <div id="products">
+        <div th:each="product : ${products}" class ="product">
+            <div class="product-col">
+                <div th:text="'Code: ' + ${product.code}" class="product-elem"></div>
+                <div th:text="'Name: ' + ${product.name}" class="product-elem"></div>
+                <div th:text="'EAN code: ' + ${product.ean}" class="product-elem"></div>
+            </div>
+            <div class="product-col">
+                <div th:text="'Quantity: ' + ${product.quantity}" class="product-elem"></div>
+                <div th:text="'Price: ' + ${product.price}" class="product-elem"></div>
+                <div th:text="'VAT tax: ' + ${product.vat}" class="product-elem"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
