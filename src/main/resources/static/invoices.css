@@ -83,3 +83,32 @@ a:hover{
     display: flex;
     align-items: center;
 }
+
+.invoice-position{
+    display: flex;
+    width: 75%;
+    margin-top: 5px;
+    border-top: 1px solid white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.invoice-position .invoice-col{
+    width: 50%
+}
+
+.invoice-footer{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 75%;
+    margin-top: 5px;
+    padding-top: 3px;
+    border-top: 2px solid red;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.invoice-footer .div{
+    margin-left: 60%;
+}

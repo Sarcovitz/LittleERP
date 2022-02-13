@@ -45,4 +45,10 @@ public class ProductService implements IProductService
 
         return productBox.get();
     }
+
+    @Override
+    public void updateProduct(Product product)
+    {
+        productRepository.updateProduct(product);
+    }
 }

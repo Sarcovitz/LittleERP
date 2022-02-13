@@ -6,7 +6,6 @@
     <title>Little ERP - Add position to invoice</title>
     <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="../../form.css">
-<!--    <script src="../js.js"></script>-->
 </head>
 <body>
 
@@ -44,11 +43,11 @@
             alert("You need to select a Product");
             return false;
         }
-        else if(!Number.isInteger(quantity) || Number.parseInt(quantity) <= 0)
-        {
-            alert("Quantity must be an integer number higher than 0");
-            return false;
-        }
+        // else if(!Number.isInteger(quantity))
+        // {
+        //     alert("Quantity must be an integer number higher than 0");
+        //     return false;
+        // }
         else return true;
     }
 </script>

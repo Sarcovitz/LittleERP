@@ -89,4 +89,28 @@ public class Invoice
     {
         this.positions = positions;
     }
+
+    public double getNetSum()
+    {
+        double sum =0;
+
+        for(InvoicePosition position : this.positions)
+        {
+            sum += position.getValue() * (1 - (double)position.getProduct().getVat()/100);
+        }
+
+        return Math.round(sum*100)/100.0;
+    }
+
+    public double getGrossSum()
+    {
+        double sum =0;
+
+        for(InvoicePosition position : this.positions)
+        {
+            sum += position.getValue();
+        }
+
+        return Math.round(sum*100)/100.0;
+    }
 }

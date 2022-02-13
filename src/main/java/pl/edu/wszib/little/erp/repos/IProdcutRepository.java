@@ -10,4 +10,5 @@ public interface IProdcutRepository
     List<Product> getUserProducts(int userId);
     Optional<Product> getProductByCode(String code);
     void addProduct(Product product);
+    void updateProduct(Product product);
 }

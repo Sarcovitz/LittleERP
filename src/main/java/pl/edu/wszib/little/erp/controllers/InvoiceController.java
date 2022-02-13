@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.edu.wszib.little.erp.exceptions.ProductAlreadyExistsException;
+import pl.edu.wszib.little.erp.exceptions.ProductShortageException;
 import pl.edu.wszib.little.erp.models.Invoice;
 import pl.edu.wszib.little.erp.models.InvoicePosition;
 import pl.edu.wszib.little.erp.models.ViewModels.AddInvoice;
@@ -104,21 +106,50 @@ public class InvoiceController
 
         var invoice = this.invoiceService.getInvoiceById(invoiceId);
         var invoicePosition = new InvoicePosition();
+        boolean shortage = false;
         try
         {
+            var product = productService.getProductByCode(addInvoicePosition.getProductCode());
+
+            if(invoice.isSalesInvoice()) product.setQuantity(product.getQuantity() - addInvoicePosition.getQuantity());
+            else product.setQuantity(product.getQuantity() + addInvoicePosition.getQuantity());
+
+            if(product.getQuantity() < 0)
+            {
+                shortage = true;
+                throw new ProductShortageException();
+            }
+
             invoicePosition.setQuantity(addInvoicePosition.getQuantity());
-            invoicePosition.setProduct(productService.getProductByCode(addInvoicePosition.getProductCode()));
+            invoicePosition.setProduct(product);
             invoice.getPositions().add(invoicePosition);
             invoiceService.updateInvoice(invoice);
+            productService.updateProduct(product);
         } catch(Exception e)
         {
             model.addAttribute("position", invoicePosition);
             model.addAttribute("invoiceId", invoiceId);
             model.addAttribute("addPosition", addInvoicePosition);
             model.addAttribute("products", this.productService.getUserProducts(this.session.getUser().getId()));
-            model.addAttribute("error", "");
-            return "/invoices/addposition/"+invoiceId;
+            if(shortage) model.addAttribute("error", "There is not enough amount of this product!");
+            else model.addAttribute("error", "");
+
+            return "redirect:/invoices/addposition/"+invoiceId;
         }
+
+        return "redirect:/invoices";
+    }
+
+    @RequestMapping(value = "/invoices/confirm/{id}", method = RequestMethod.GET)
+    public String confirm(Model model, @PathVariable int id)
+    {
+        model.addAttribute("logged", this.session.isLogged());
+        if(!this.session.isLogged()) return "redirect:/login";
+
+        var invoice = invoiceService.getInvoiceById(id);
+        invoice.setConfirmed(true);
+
+        invoiceService.updateInvoice(invoice);
 
         return "redirect:/invoices";
     }

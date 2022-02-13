@@ -27,8 +27,7 @@
                 </div>
                 <div class="invoice-button-col">
                     <a th:if="${invoice.confirmed == false}" class="col-button" th:href="@{/invoices/addposition/{id}(id=${invoice.id})}">Add position</a>
-                    <a th:if="${invoice.confirmed == false}" class="col-button" th:href="@{/invoices/confirm/{id}(id=${invoice.id})}">Confirm</a>
-                    <a class="col-button" th:href="@{/invoices/delete/{id}(id=${invoice.id})}">Delete</a>
+                    <a th:if="${invoice.confirmed == false && invoice.positions.size() > 0}" class="col-button" th:href="@{/invoices/confirm/{id}(id=${invoice.id})}">Confirm</a>
                 </div>
             </div>
             <div th:each = "position : ${invoice.positions}" class="invoice-position">
@@ -40,6 +39,10 @@
                     <div th:text="'Price: ' + ${position.product.price}+ ' PLN'" class="invoice-pos-elem"></div>
                     <div th:text="'Value: ' + ${position.getValue()}+ ' PLN'" class="invoice-pos-elem"></div>
                 </div>
+            </div>
+            <div th:if="${invoice.positions.size() > 0}" class="invoice-footer">
+                <div th:text="'Total net value: '+${invoice.getNetSum()}+ ' PLN'"></div>
+                <div th:text="'Total gross value: '+${invoice.getGrossSum()}+ ' PLN'"></div>
             </div>
         </div>
     </div>

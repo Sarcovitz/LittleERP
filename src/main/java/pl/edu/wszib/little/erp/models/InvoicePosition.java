@@ -54,6 +54,7 @@ public class InvoicePosition
 
     public double getValue()
     {
-        return quantity * product.getPrice();
+        double value = quantity * product.getPrice();
+        return Math.round(value*100)/100.0;
     }
 }

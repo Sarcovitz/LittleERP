@@ -68,4 +68,24 @@ public class ProductRepository implements IProdcutRepository
             session.close();
         }
     }
+
+    @Override
+    public void updateProduct(Product product)
+    {
+        Session session =  this.sessionFactory.openSession();
+        Transaction tran = null;
+        try
+        {
+            tran = session.beginTransaction();
+            session.update(product);
+            tran.commit();
+        } catch  (Exception e)
+        {
+            if(tran!=null) tran.rollback();
+        }
+        finally
+        {
+            session.close();
+        }
+    }
 }
