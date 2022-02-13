@@ -11,7 +11,7 @@
 
 <div th:replace="fragments.html :: menu"></div>
 
-<div id="login-form-holder">
+<div id="form-holder">
     <form action="/register" method="post" class="form" onsubmit="return validateRegistration()">
         <input type="text" placeholder="E-mail" th:field="*{user.email}" class="form-input" id="email">
         <br>

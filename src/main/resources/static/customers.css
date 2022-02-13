@@ -30,6 +30,7 @@ a:hover{
 }
 
 .customer{
+    margin-bottom: 5px;
     align-items: center;
     display: flex;
     width: 60%;

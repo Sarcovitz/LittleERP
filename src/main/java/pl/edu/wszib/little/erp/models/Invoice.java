@@ -13,7 +13,80 @@ public class Invoice
     private User user;
     @ManyToOne(fetch = FetchType.EAGER)
     private Customer customer;
-    private boolean confirmed;
-    @OneToMany(fetch = FetchType.EAGER)
-    List<InvoicePosition> positions;
+    private boolean confirmed = false;
+    private boolean salesInvoice = true;
+    @OneToMany( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<InvoicePosition> positions;
+
+    public Invoice(){}
+
+    public Invoice(int id, User user, Customer customer, boolean confirmed, boolean salesInvoice, List<InvoicePosition> positions)
+    {
+        this.id = id;
+        this.user = user;
+        this.customer = customer;
+        this.confirmed = confirmed;
+        this.salesInvoice = salesInvoice;
+        this.positions = positions;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public User getUser()
+    {
+        return user;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
+    }
+
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer)
+    {
+        this.customer = customer;
+    }
+
+    public boolean isConfirmed()
+    {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed)
+    {
+        this.confirmed = confirmed;
+    }
+
+    public boolean isSalesInvoice()
+    {
+        return salesInvoice;
+    }
+
+    public void setSalesInvoice(boolean salesInvoice)
+    {
+        this.salesInvoice = salesInvoice;
+    }
+
+    public List<InvoicePosition> getPositions()
+    {
+        return positions;
+    }
+
+    public void setPositions(List<InvoicePosition> positions)
+    {
+        this.positions = positions;
+    }
 }

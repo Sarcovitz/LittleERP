@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Invoices</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../invoices.css">
+</head>
+<body>
+<div id="content">
+    <div th:replace="fragments.html :: menu"></div>
+    <H1>INVOICES</H1>
+    <a id="centered-a" href="/invoices/add">Add Invoice</a>
+
+    <div id="invoices">
+        <div th:each="invoice : ${invoices}" class ="invoice">
+            <div id="invoice-divider">
+                <div class="invoice-col">
+                    <div th:if="${invoice.salesInvoice==true}" th:text="'Invoice: FS-' + ${invoice.id}" class="invoice-elem"></div>
+                    <div th:if="${invoice.salesInvoice==false}" th:text="'Invoice: FZ-' + ${invoice.id}" class="invoice-elem"></div>
+                    <div th:text="'Customer: ' + ${invoice.customer.code}" class="invoice-elem"></div>
+                </div>
+                <div class="invoice-col-2">
+                    <div th:if="${invoice.confirmed == true}" class="invoice-elem">Confirmed</div>
+                    <div id="invoice-not-confirmed" th:if="${invoice.confirmed == false}" class="invoice-elem">Not confirmed</div>
+                </div>
+                <div class="invoice-button-col">
+                    <a th:if="${invoice.confirmed == false}" class="col-button" th:href="@{/invoices/addposition/{id}(id=${invoice.id})}">Add position</a>
+                    <a th:if="${invoice.confirmed == false}" class="col-button" th:href="@{/invoices/confirm/{id}(id=${invoice.id})}">Confirm</a>
+                    <a class="col-button" th:href="@{/invoices/delete/{id}(id=${invoice.id})}">Delete</a>
+                </div>
+            </div>
+            <div th:each = "position : ${invoice.positions}" class="invoice-position">
+                <div class="invoice-col">
+                    <div th:text="'Product: ' + ${position.product.code}" class="invoice-pos-elem"></div>
+                    <div th:text="'Quantity: ' + ${position.quantity}" class="invoice-pos-elem"></div>
+                </div>
+                <div class="invoice-col">
+                    <div th:text="'Price: ' + ${position.product.price}+ ' PLN'" class="invoice-pos-elem"></div>
+                    <div th:text="'Value: ' + ${position.getValue()}+ ' PLN'" class="invoice-pos-elem"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

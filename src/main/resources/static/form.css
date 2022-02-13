@@ -1,25 +1,3 @@
-/*#login-form-holder{*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    padding-top: 200px;*/
-/*}*/
-
-/*#login-form-holder .form{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    width: 50%;*/
-/*}*/
-
-/*#customer-form-holder{*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    padding-top: 50px;*/
-/*}*/
-/*#customer-form-holder .form{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    width: 50%;*/
-/*}*/
 #form-holder{
     display: flex;
     justify-content: center;
@@ -61,15 +39,36 @@
     display: flex;
 }
 
+.form #form-radio-holder{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#form-radio-holder .form-radio{
+    float: left;
+    height: 30px;
+    width: 30px;
+}
+
+label{
+    float: left;
+    margin-left: 3px;
+    font-size: 30px;
+    color: white;
+}
+
 .form-buttons .form-button{
-    width: 40%;
+    width: 45%;
     margin: 0 auto;
-    height: 26px;
+    height: 35px;
     border: 2px solid white;
     border-radius: 26px;
     background-color: transparent;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     transition: background-color 0.5s;
     transition: color 0.5s;
 }

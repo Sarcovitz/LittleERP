@@ -14,7 +14,7 @@
 <H1 th:if="${add == true}">ADD CUSTOMER</H1>
 <H1 th:if="${add == false}">EDIT CUSTOMER</H1>
 
-<p id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+<p align="center" id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
 
 <div th:if="${add==true}" id="form-holder">
     <form action="/customers/add" method="post" class="form" onsubmit="return validateCustomer()">

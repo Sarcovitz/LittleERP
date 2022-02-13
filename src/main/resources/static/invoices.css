@@ -20,7 +20,7 @@ a:hover{
     background: white;
 }
 
-#products{
+#invoices{
     align-items: center;
     margin: 0 auto;
     padding-top: 20px;
@@ -29,24 +29,57 @@ a:hover{
     color: white;
 }
 
-.product{
+.invoice{
     margin-bottom: 5px;
     align-items: center;
     display: flex;
+    flex-direction: column;
     width: 60%;
     border: 2px solid white;
     border-radius: 10px;
 }
 
-.product-col {
-    padding-left: 20px;
+.invoice-col {
+    padding-left: 40px;
     margin: 0 auto;
     width: 30%;
     float: left;
 }
 
-.product-elem{
+.invoice-col-2 {
+    padding-left: 40px;
+    margin: 0 auto;
+    width: 15%;
+    float: left;
+}
+
+.invoice-button-col{
+    padding-left: 40px;
+    margin: 0 auto;
+    width: 35%;
+    float: left;
+}
+
+.invoice-elem{
     padding-top: 4px;
     padding-bottom: 4px;
+}
 
+.col-button{
+    white-space: nowrap;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 70px;
+    font-size: 15px;
+    height: 20px;
+}
+
+#invoice-not-confirmed{
+    color: lightgreen;
+}
+
+#invoice-divider{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }

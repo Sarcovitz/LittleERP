@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Add Invoice</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../form.css">
+    <script th:src="@{../js.js}"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: menu"></div>
+<H1 th:if="${add == true}">ADD INVOICE</H1>
+<H1 th:if="${add == false}">EDIT INVOICE</H1>
+
+<p align="center" id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+
+<div th:if="${add==true}" id="form-holder">
+    <form action="/invoices/add" method="post" class="form" onsubmit="return validateInvoice()">
+        <select th:if="${invoice.customer!=null}" th:field="*{addInvoice.customerCode}" th:value="${invoice.customer.code}" th:text="${invoice.customer.code}" class="form-input" id="customer">
+            <option  th:value="${null}">Please select customer...</option>
+            <option th:each="customer : ${customers}" th:value="${customer.code}" th:text="${customer.code}"></option>
+        </select>
+        <select th:if="${invoice.customer==null}" th:field="*{addInvoice.customerCode}" class="form-input" id="customer">
+            <option  th:value="${null}">Please select customer...</option>
+            <option th:each="customer : ${customers}" th:value="${customer.code}" th:text="${customer.code}"></option>
+        </select>
+        <br>
+        <div id="form-radio-holder">
+            <div>
+                <input type="radio" th:field="*{addInvoice.salesInvoice}" th:value="${true}" th:checked="${invoice.salesInvoice}" class="form-radio" name="salesInvoice" id="SalesInvoice">
+                <label for="SalesInvoice">Sales invoice</label>
+            </div>
+            <br>
+            <div>
+                <input type="radio" th:value="${false}" class="form-radio" name="salesInvoice" id="PurchaseInvoice">
+                <label for="PurchaseInvoice">Purchase invoice</label>
+            </div>
+        </div>
+        <br>
+        <div class="form-buttons">
+            <input type="submit" value="ADD" class="form-button">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

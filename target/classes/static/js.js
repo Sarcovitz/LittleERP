@@ -112,9 +112,9 @@ function validateProduct()
         alert("Price must be a number (float or integer)!");
         return false;
     }
-    else if(!Number.isInteger(quantity))
+    else if(!Number.isInteger(quantity) || Number.parseInt(quantity) <= 0)
     {
-        alert("Quantity must be an integer number");
+        alert("Quantity must be an integer number and higher than 0");
         return false;
     }
     else if(!Number.isInteger(vat))
@@ -123,7 +123,40 @@ function validateProduct()
         return false;
     }
     else return true;
+}
 
+function validateInvoice()
+{
+    const customer = document.getElementById("customer");
+
+    var customerText = customer.options[customer.selectedIndex].text;
+
+    if(customerText === "Please select customer...")
+    {
+        alert("You need to select a Customer");
+        return false;
+    }
+    else return true;
+}
+
+function validatePosition()
+{
+    const product = document.getElementById("product");
+    const quantity = document.getElementById("quantity");
+
+    var productText = product.options[product.selectedIndex].text;
+
+    if(productText === "Please select product..." || productText === "" )
+    {
+        alert("You need to select a Product");
+        return false;
+    }
+    else if(!Number.isInteger(quantity) || Number.parseInt(quantity) <= 0)
+    {
+        alert("Quantity must be an integer number");
+        return false;
+    }
+    else return true;
 }
 
 function validateNewOffer()

@@ -14,7 +14,7 @@
 <H1 th:if="${add == true}">ADD PRODUCT</H1>
 <H1 th:if="${add == false}">EDIT PRODUCT</H1>
 
-<p id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+<p align="center" id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
 
 <div th:if="${add==true}" id="form-holder">
     <form action="/products/add" method="post" class="form" onsubmit="return validateProduct()">
@@ -22,13 +22,13 @@
         <br>
         <input type="text" placeholder="Code" th:field="*{product.code}" class="form-input" id="code">
         <br>
-        <input type="text" placeholder="EAN code" th:field="*{product.ean}" class="form-input" id="nip">
+        <input type="text" placeholder="EAN code" th:field="*{product.ean}" class="form-input" id="ean">
         <br>
-        <input type="text" placeholder="Price ('.' dot for float value)" th:field="*{product.price}" name="Price" class="form-input" id="city">
+        <input type="text" placeholder="Price ('.' dot for float value)" th:field="*{product.price}" name="Price" class="form-input" id="price">
         <br>
-        <input type="text" placeholder="Quantity" th:field="*{product.quantity}" name="Quantity" class="form-input" id="address">
+        <input type="text" placeholder="Quantity" th:field="*{product.quantity}" name="Quantity" class="form-input" id="quantity">
         <br>
-        <input type="text" placeholder="Vat tax" th:field="*{product.vat}" name="Vat tax" class="form-input" id="mailOrPhone">
+        <input type="text" placeholder="Vat tax" th:field="*{product.vat}" name="Vat tax" class="form-input" id="vat">
         <br>
         <div class="form-buttons">
             <input type="submit" value="ADD" class="form-button">

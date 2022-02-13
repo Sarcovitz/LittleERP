@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little ERP - Add position to invoice</title>
+    <link rel="stylesheet" href="../../common.css">
+    <link rel="stylesheet" href="../../form.css">
+<!--    <script src="../js.js"></script>-->
+</head>
+<body>
+
+<div th:replace="fragments.html :: menu"></div>
+<H1>ADD INVOICE POSITION</H1>
+
+<p align="center" id="error" th:if="${!error.isEmpty()}" th:text="*{error}"></p>
+
+<div id="form-holder">
+    <form th:action="@{/invoices/addposition/{id} (id=${invoiceId})}" method="post" class="form" onsubmit="return validatePosition()">
+        <select th:field="*{addPosition.productCode}" class="form-input" id="product">
+            <option  th:value="${null}">Please select product...</option>
+            <option th:each="product : ${products}" th:value="${product.code}" th:text="${product.code}"></option>
+        </select>
+        <br>
+        <input type="text" placeholder="Quantity" th:field="*{addPosition.quantity}" th:value="${''}" class="form-input" id="quantity">
+        <br>
+        <div class="form-buttons">
+            <input type="submit" value="ADD" class="form-button">
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+    function validatePosition()
+    {
+        const product = document.getElementById("product");
+        const quantity = document.getElementById("quantity");
+
+        var productText = product.options[product.selectedIndex].text;
+
+        if(productText === "Please select product..." || productText === "" )
+        {
+            alert("You need to select a Product");
+            return false;
+        }
+        else if(!Number.isInteger(quantity) || Number.parseInt(quantity) <= 0)
+        {
+            alert("Quantity must be an integer number higher than 0");
+            return false;
+        }
+        else return true;
+    }
+</script>
+</html>

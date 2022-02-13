@@ -50,6 +50,7 @@ public class CustomerController
     {
         model.addAttribute("logged", this.session.isLogged());
         if(!this.session.isLogged()) return "redirect:/login";
+
         try
         {
             customer.setUser(this.session.getUser());

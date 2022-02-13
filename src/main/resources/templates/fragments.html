@@ -8,6 +8,7 @@
 <body>
 <div id="menu" th:fragment="menu">
     <a href="/main">Main Page</a>
+    <a th:if="${logged == true}" href="/invoices">Invoices</a>
     <a th:if="${logged == true}" href="/customers">Customers</a>
     <a th:if="${logged == true}" href="/products">Products</a>
     <a th:if="${logged == false}" href="/login">Log In</a>

@@ -29,6 +29,8 @@
         <mapping class="pl.edu.wszib.little.erp.models.User"/>
         <mapping class="pl.edu.wszib.little.erp.models.Customer"/>
         <mapping class="pl.edu.wszib.little.erp.models.Product"/>
+        <mapping class="pl.edu.wszib.little.erp.models.Invoice"/>
+        <mapping class="pl.edu.wszib.little.erp.models.InvoicePosition"/>
 
     </session-factory>
 </hibernate-configuration>
